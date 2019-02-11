@@ -1,0 +1,37 @@
+<script>
+
+text = prompt("Enter text")
+shift = parseInt(prompt("Enter shift"))
+outtext = ""
+for (i = 0; i < text.length; i++) {
+	res = text.charCodeAt(i)
+	a = res + shift
+	if (a > 90 && a < 97) {
+		b = (a - 90) + 64
+		answer = String.fromCharCode(b)
+		}
+	if (a < 65) {
+		b = 91 - (65 - a)
+		answer = String.fromCharCode(b)}
+	if (a >= 65 && a <= 90) {
+		answer = String.fromCharCode(a)
+		}
+	if (a > 122) {
+		b = (a - 122) + 96
+		answer = String.fromCharCode(b)
+		}
+	if (a < 97 && a > 90) {
+		b = 123 - (97 - a)
+		answer = String.fromCharCode(b)
+		}
+	if (a >= 97 && a <= 122) {
+		answer = String.fromCharCode(a)
+		} 
+	if (res < 65 || (res > 90 && res < 97) || res > 122) {
+		answer = String.fromCharCode(res)
+		}
+	outtext += answer
+	} 
+alert(outtext)
+  
+</script>
