@@ -1,10 +1,10 @@
 <script>
 
-text = prompt("Enter text")
+intext = prompt("Enter text")
 shift = parseInt(prompt("Enter shift"))
 outtext = ""
-for (i = 0; i < text.length; i++) {
-	res = text.charCodeAt(i)
+for (i = 0; i < intext.length; i++) {
+	res = intext.charCodeAt(i)
 	a = res + shift
 	if (a > 90 && a < 97) {
 		b = (a - 90) + 64
