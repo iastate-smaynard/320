@@ -1,0 +1,32 @@
+<p>Input:<br><textarea id="input" rows="10" cols="80"></textarea>
+<p><button onclick="process()">Process</button>
+<p>Output:<br><textarea id="output" rows="10" cols="80"></textarea>
+
+<script>
+
+function process() {
+  x = document.getElementById("input").value
+  // y = x.toLowerCase() - don't need this line
+  words = x.split(" ")
+
+  for (i = 0; i < (words.length - 1); i++) {
+    if (words[i+1].charAt(0) === "a" || words[i+1].charAt(0) === "e" || words[i+1].charAt(0) === "i" || words[i+1].charAt(0) === "o" || words[i+1].charAt(0) === "u") {
+	  next_word_starts_with_vowel = true
+	} else {
+	  next_word_starts_with_vowel = false
+	}
+
+    if (words[i] === "a" && next_word_starts_with_vowel) {
+	  words[i] = "an"
+	}
+	
+	if (words[i] === "an" && !next_word_starts_with_vowel) {
+	  words[i] = "a"
+	}
+  }
+ 
+  
+  document.getElementById("output").value = words.join(" ")
+}
+
+</script>
