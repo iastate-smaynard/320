@@ -1,0 +1,68 @@
+<script>
+question_bank = {
+  in: [
+      "The toy is ___ the box.", 
+      "I met him ___ September.", 
+      "___ the beginning was the word.",
+	  "He left his keys ___ the car.",
+	  "She has nice furniture ___ her home."
+  ], 
+  by: [
+      "He was stunned ___ my beauty.",
+      "His favorite book is The Great Gatsby ___ F. Scott Fitzgerald.", 
+      "There is a stream that runs ___ my house.", 
+	  "My best friend sat ___ me in class today.", 
+	  "I was in bed ___ ten o'clock."
+  ],
+  to: [
+      "They walked ___ school together.",
+	  "She is always very kind ___ me.",
+	  "This book belongs ___ me.",
+	  "I traveled ___ Spain last semester.",
+	  "I need to talk ___ you tonight."
+  ],
+  of: [
+	  "I was unaware ___ the problem.",
+	  "My dad always tells me he is proud ___ me.",
+	  "Summer is my favorite time ___ year.",
+	  "George Washington was the first president ___ the United States.",
+	  "Des Moines is south ___ Ames."
+  ],
+  at:  [
+	  "She couldn't go to the party because she was ___ work.",
+	  "The party will be ___ my apartment.",
+	  "I am happiest when I am ___ the beach.",
+	  "He felt there was too much criticism directed ___ him.",
+	  "I bought vegetables ___ the grocery store."
+  ]
+}
+
+prepositions = ['in', 'by', 'to', 'of', 'at']
+
+
+learner_model = { in: 0, by: 0, to: 0, of: 0, at: 0 }
+  
+while (true) {
+  worst_known_preposition = prepositions[0]
+  smallest_score = learner_model[worst_known_preposition]
+  for (i=0; i<prepositions.length; i++) {
+    if (learner_model[prepositions[i]] < smallest_score) {
+	  smallest_score = learner_model[prepositions[i]]
+	  worst_known_preposition = prepositions[i]
+    }
+  }
+  question = question_bank[worst_known_preposition][parseInt(Math.random() * 5)]
+  answer = prompt(question)
+  if (answer === worst_known_preposition) {
+    alert("Correct!")
+	learner_model[worst_known_preposition] ++ //increase by 1	
+  }
+  else {
+    alert(question.replace("___", worst_known_preposition))
+    learner_model[worst_known_preposition] -- //decrease by 1
+  }
+  
+}
+
+
+</script>
