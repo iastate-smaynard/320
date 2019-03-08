@@ -51,7 +51,7 @@ while (true) {
 	  worst_known_preposition = prepositions[i]
     }
   }
-  question = question_bank[worst_known_preposition][parseInt(Math.random() * 5)]
+  question = question_bank[worst_known_preposition][parseInt(Math.random() * question_bank[worst_known_preposition].length)]
   answer = prompt(question)
   if (answer === worst_known_preposition) {
     alert("Correct!")
