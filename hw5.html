@@ -1,0 +1,9 @@
+<script>
+
+  x = prompt("Enter a sentence.") 
+  y = x.replace(/\b([^aeiouy]*)([aeiouy]+)([^aeiouy]+)([e])\b/g, "$1aig$2$38")
+  y = y.replace(/([aeiou]+)/g, "aig$1")  
+  y = y.replace(/8/g, "e")
+  alert(y)
+
+</script>
